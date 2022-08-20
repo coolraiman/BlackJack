@@ -16,6 +16,7 @@ protected:
 	double money;
 	double totalGains = 0;
 	int action[2] = { -1,-1 };
+	bool isHuman;
 public: 
 	Player() {}
 	Player(int id,string nom, double money) { this->nom = nom; this->money = money; };
@@ -27,6 +28,9 @@ public:
 
 	int getId() { return id; }
 	string getNom() { return nom; }
+	double getMoney() { return money; }
+	bool getIsHuman() {return isHuman;}
+	void setIsHuman(bool isHuman) { this->isHuman = isHuman; }
 
 	enum ActionContext {
 		INSURANCE,

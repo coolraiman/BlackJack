@@ -9,8 +9,10 @@ class Deck
 private:
 	Card** cards;
 	int cardIndex;
+
 public:
 	Deck();
+	
 	void shuffle();
 	Card* draw();
 	~Deck();

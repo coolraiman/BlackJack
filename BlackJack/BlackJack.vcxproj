@@ -142,12 +142,14 @@
     <ClCompile Include="BlackJack.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameSettings.cpp" />
     <ClCompile Include="Handcpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameSettings.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="Player.h" />
