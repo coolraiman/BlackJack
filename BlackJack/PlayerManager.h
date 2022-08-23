@@ -12,12 +12,13 @@ class PlayerManager
 {
 private:
 	 vector<Player*> players;
+	 bool loaded = false;
 
 public:
 
-	 const vector<Player*> getAllPlayers()
+	 vector<Player*>* getAllPlayers()
 	{
-		return players;
+		return &players;
 	}
 
 	 vector<Player*> getPlayers(vector<int> ids)
@@ -48,10 +49,13 @@ public:
 
 	 void createPlayer(string name, double money)
 	{
-		if(players.size() != 0)
-			players.push_back(new Player(players[players.size() - 1]->getId(), name, money));
-		else
-			players.push_back(new Player(0, name, money));
+		 if (players.size() != 0)
+		 {
+			 players.push_back(new Player(players[players.size() - 1]->getId() + 1, name, money));
+		 }
+		 else{
+			 players.push_back(new Player(0, name, money));
+		 }
 	}
 
 	 bool deletePlayer(int id)
@@ -90,6 +94,7 @@ public:
 
 		file.open("save", std::ios::out | std::ios::trunc); // clear contents
 		file.close();
+		loaded = true;
 	}
 
 	void savePlayers()

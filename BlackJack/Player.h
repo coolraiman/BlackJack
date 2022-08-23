@@ -19,7 +19,7 @@ protected:
 	bool isHuman;
 public: 
 	Player() {}
-	Player(int id,string nom, double money) { this->nom = nom; this->money = money; };
+	Player(int id, string nom, double money) { this->id = id; this->nom = nom; this->money = money; };
 	Player(int id, string nom, double money, int nWins, int nLost, double totalGains) 
 	{
 		this->id = id; this->nom = nom; this->money = money; this->nWins = nWins; this->nLost = nLost; this->totalGains = totalGains;
@@ -29,8 +29,10 @@ public:
 	int getId() { return id; }
 	string getNom() { return nom; }
 	double getMoney() { return money; }
+	bool substractMoney(int amount);
 	bool getIsHuman() {return isHuman;}
 	void setIsHuman(bool isHuman) { this->isHuman = isHuman; }
+	Hand* getHands() { return hand; }
 
 	enum ActionContext {
 		INSURANCE,

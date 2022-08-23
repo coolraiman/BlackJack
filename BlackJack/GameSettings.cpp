@@ -5,6 +5,19 @@ void GameSettings::createPlayer(string nom, double money)
 	pM->createPlayer(nom, money);
 }
 
+bool GameSettings::playerInLobby(int id)
+{
+	for (int i = 0; i < players.size(); i++)
+	{
+		if (id == players.at(i)->getId())
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 bool GameSettings::deletePlayer(int id) {
 	return pM->deletePlayer(id);
 }

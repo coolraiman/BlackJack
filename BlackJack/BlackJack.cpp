@@ -5,6 +5,7 @@
 #include "Deck.h"
 #include "Player.h"
 #include "PlayerManager.h"
+#include "NoGuiMain.h"
 
 void init()
 {
@@ -14,18 +15,23 @@ void init()
 
 int main()
 {
-    PlayerManager pM;
-    pM.createPlayer("bob", 10001);
-    pM.createPlayer("henry", 123551);
-    pM.createPlayer("gon", 199951);
-
+    
+    //PlayerManager pM;
+    //pM.loadPlayers();
+    //pM.createPlayer("bob", 10001);
+    //pM.createPlayer("henry", 123551);
+    //pM.createPlayer("gon", 199951);
+    //cout << pM.getAllPlayers()->size();
     //pM.savePlayers();
-    pM.loadPlayers();
+    //
 
-    int pause = 0;
-    cout << "tt" << endl;
-    cin >> pause;
-    cin >> pause;
+    //int pause = 0;
+    //cout << "tt" << endl;
+    //cin >> pause;
+    //cin >> pause;
+
+    NoGuiMain ngM;
+    ngM.main();
 
 }
 

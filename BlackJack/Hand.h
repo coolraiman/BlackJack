@@ -14,6 +14,7 @@ public:
 	int calculateHandValue();
 
 	void drawHand();
+	void clearHand() { cards.clear(); }
 
 	~Hand()
 	{

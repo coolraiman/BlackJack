@@ -15,8 +15,7 @@ private:
 	double betValue = 5;
 	bool allowSplit = true;
 	bool allowInsurance = true;
-	GameSettings(PlayerManager* pM, GameManager* gM) { this->pM = pM; this->gM = gM; }
-
+	
 	struct GameSettingData {
 		vector<int> playersId;
 		double betValue;
@@ -24,7 +23,9 @@ private:
 		bool allowInsurance;
 	};
 public:
+	GameSettings(PlayerManager* pM, GameManager* gM) { this->pM = pM; this->gM = gM; }
 	vector<Player*>* getPlayers(){return &players;}
+	bool playerInLobby(int id);
 
 	bool canStartGame();
 	bool startGame();

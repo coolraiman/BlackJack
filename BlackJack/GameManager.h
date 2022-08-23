@@ -4,30 +4,53 @@
 #include "Player.h"
 #include "GameSettings.h"
 class GameSettings;
-enum GameState;
+//struct PlayerInput;
+
+enum GameState {
+	NONE,
+	BET,
+	CHECK_PLAYER_BLACKJACK,
+	INSURANCE,
+	SPLIT,
+	PLAY
+};
+
+struct PlayerInput {
+	short pIndex;
+	short hand;
+};
+struct PlayerHandStatus {
+	short pIndex;
+	short handIndex;
+	bool active;
+};
+
 
 class GameManager {
-private:
+protected:
 	bool isActive = false;
 	GameSettings *gS;
 	vector<Player*>* players;
+	vector<int> inGame;
 	Deck deck;
 	GameState gameState;
-	vector<int> getPlayersToBet();
+	Hand dealer;
+
+
+	vector<PlayerInput> getPlayersToBet(); 
+	void distributeCards();
+	void initGame();
+	bool playerBlackjackWin(int p);
+
 public:
-	enum GameState {
-		NONE,
-		BET,
-		INSURANCE,
-		SPLIT,
-		PLAY
-	};
-
-	bool getIsActive() { return isActive; }
-	bool startGame(GameSettings* gs);
-
-	vector<int> getPlayersForAction();
 	
+	
+	bool getIsActive() { return isActive; }
+	bool startGame(GameSettings* gs); //step 1
 
+	vector<PlayerInput> getPlayersForAction();
+	bool setBets(vector<int> p); //step 2
+	
+	vector<int> checkPlayerBlackjack(); //step 3
 
 };
